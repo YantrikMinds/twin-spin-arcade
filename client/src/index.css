@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* =========================================================
+   THERMAL PRINTER STYLES (58mm & 80mm formats)
+   ========================================================= */
+@media screen {
+  .thermal-receipt-print-wrapper {
+    display: none !important;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .thermal-receipt-print-wrapper,
+  .thermal-receipt-print-wrapper * {
+    visibility: visible !important;
+  }
+
+  .thermal-receipt-print-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    display: block !important;
+  }
+
+  @page {
+    margin: 0;
+    size: auto;
+  }
+}
+
+/* Thermal receipt container widths */
+.receipt-58mm {
+  width: 54mm;
+  max-width: 58mm;
+  padding: 2mm 3mm;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.receipt-80mm {
+  width: 72mm;
+  max-width: 80mm;
+  padding: 3mm 4mm;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* iOS Safe Area Inset Support */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+

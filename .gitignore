@@ -1,0 +1,13 @@
+node_modules/
+.env
+server/.env
+server/data/store.json
+server/uploads/*
+!server/uploads/.gitkeep
+!server/uploads/paytm_qr.svg
+*.log
+.DS_Store
+Thumbs.db
+twin-spin-arcade.zip
+twin-spin-arcade-EMAIL-READY.zip
+twin-spin-arcade-backup.dat
